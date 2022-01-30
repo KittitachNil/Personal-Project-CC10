@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer className=" mybgColor p-2 text-white ">
+    <footer>
       <div className="container-fluid d-flex flex-row justify-content-between align-items-center ">
         <div className="">
           <img
@@ -15,7 +15,7 @@ function Footer() {
           />
         </div>
         <div>
-          <span className="mx-1">© 2022 Copy Rigth</span>
+          <span className="mx-1">Copyrigth © 2022 Personal Project</span>
         </div>
         <div className=" justify-content-center">
           <ul className="navbar-nav ist-group list-group-horizontal">

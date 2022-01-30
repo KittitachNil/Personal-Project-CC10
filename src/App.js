@@ -1,10 +1,9 @@
-import MainLayout from './components/layouts/MainLayout';
+import RouteConfig from './routes/RouteConfig';
 
 function App() {
   return (
     <>
-      <MainLayout />
-      {/* <RouteConfig />; */}
+      <RouteConfig />;
     </>
   );
 }
