@@ -9,9 +9,9 @@ function Header() {
           <img
             src={shopImg}
             alt=""
-            width="45"
-            height="45"
-            className="d-inline-block align-text-top rounded-circle me-3"
+            width="44"
+            height="44"
+            className="d-inline-block align-text-top rounded-circle me-2"
           />
           GN Shop
         </Link>
@@ -31,12 +31,12 @@ function Header() {
             <Link to="#">Contact Us</Link>
           </li>
           <li>
-            <i class="fas fa-user "></i>
-            <Link to="#">Log in</Link>
+            <Link to="#">
+              <i class="fas fa-user "></i> Log in
+            </Link>
           </li>
           {/* <li>
-            <i class="fas fa-sign-out-alt"></i>
-            <Link to="#">Log out</Link>
+            <Link to="#"><i class="fas fa-sign-out-alt"></i> Log out</Link>
           </li> */}
         </ul>
       </header>

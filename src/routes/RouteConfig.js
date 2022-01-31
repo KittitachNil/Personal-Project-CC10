@@ -10,7 +10,6 @@ function RouteConfig() {
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route path="" element={<Home />} />
-        {/* <Route path="friend" element={<Friend />} /> */}
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>
