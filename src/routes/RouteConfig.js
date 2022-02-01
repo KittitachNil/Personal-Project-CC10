@@ -3,6 +3,8 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import MainLayout from '../components/layouts/MainLayout';
 import { AuthContext } from '../contexts/AuthContext';
 import Home from '../pages/Home';
+import Register from '../pages/Register';
+import Login from '../pages/Login';
 
 function RouteConfig() {
   const { user } = useContext(AuthContext);
@@ -10,6 +12,8 @@ function RouteConfig() {
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route path="" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>

@@ -1,5 +1,6 @@
 import shopImg from '../../assets/gn-logo.jpg';
 import { Link } from 'react-router-dom';
+import MainMenu from './MainMenu';
 
 function Header() {
   return (
@@ -40,6 +41,7 @@ function Header() {
           </li> */}
         </ul>
       </header>
+      <MainMenu />
     </>
   );
 }
