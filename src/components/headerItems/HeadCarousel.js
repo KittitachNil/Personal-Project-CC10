@@ -3,7 +3,7 @@ function HeadCarousel() {
     <>
       <div
         id="carouselExampleIndicators"
-        className="carousel slide mx-0 mt-3"
+        className="carousel slide mx-0 mt-5"
         data-bs-ride="carousel"
       >
         <div class="carousel-indicators">

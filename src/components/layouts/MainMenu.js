@@ -1,4 +1,5 @@
 import styles from '../../styles/MainMenu.module.css';
+import { Link } from 'react-router-dom';
 
 function MainMenu() {
   return (
@@ -6,62 +7,174 @@ function MainMenu() {
       <div className={styles['menu-container']}>
         <ul className="menu-main">
           <li>
-            <a href="#">Component (DIY)</a>
+            <Link to="#">Component (DIY)</Link>
             <div className={styles['menu-sub']}>
-              <h3 className={styles['menu-category']}>Categort</h3>
-              <ul>
-                <li>
-                  <a href="#">link 01</a>
-                </li>
-                <li>
-                  <a href="#">link 02</a>
-                </li>
-                <li>
-                  <a href="#">link 03</a>
-                </li>
-                <li>
-                  <a href="#">link 03</a>
-                </li>
-              </ul>
-              <h3 className={styles['menu-category']}>Categort</h3>
-              <ul>
-                <li>
-                  <a href="#">link 01</a>
-                </li>
-                <li>
-                  <a href="#">link 02</a>
-                </li>
-                <li>
-                  <a href="#">link 03</a>
-                </li>
-                <li>
-                  <a href="#">link 03</a>
-                </li>
-              </ul>
+              <div className={styles['menu-row-1']}>
+                <h3 className={styles['menu-category']}>Categort</h3>
+                <ul>
+                  <li>
+                    <Link to="#">link 01</Link>
+                  </li>
+                  <li>
+                    <Link to="#">link 02</Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div className={styles['menu-row-1']}>
+                <h3 className={styles['menu-category']}>Categort</h3>
+                <ul>
+                  <li>
+                    <Link to="#">link 01</Link>
+                  </li>
+                  <li>
+                    <Link to="#">link 02</Link>
+                  </li>
+                  <li>
+                    <Link to="#">link 03</Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div className={styles['menu-row-1']}>
+                <h3 className={styles['menu-category']}>Categort</h3>
+                <ul>
+                  <li>
+                    <Link to="#">link 01</Link>
+                  </li>
+                  <li>
+                    <Link to="#">link 02</Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div className={styles['menu-row-1']}>
+                <h3 className={styles['menu-category']}>Categort</h3>
+                <ul>
+                  <li>
+                    <Link to="#">link 01</Link>
+                  </li>
+                  <li>
+                    <Link to="#">link 02</Link>
+                  </li>
+                  <li>
+                    <Link to="#">link 03</Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div className={styles['menu-row-1']}>
+                <h3 className={styles['menu-category']}>Categort</h3>
+                <ul>
+                  <li>
+                    <Link to="#">link 01</Link>
+                  </li>
+                  <li>
+                    <Link to="#">link 02</Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div className={styles['menu-row-1']}>
+                <h3 className={styles['menu-category']}>Categort</h3>
+                <ul>
+                  <li>
+                    <Link to="#">link 01</Link>
+                  </li>
+                  <li>
+                    <Link to="#">link 02</Link>
+                  </li>
+                  <li>
+                    <Link to="#">link 03</Link>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li>
-            <a href="#">Storage</a>
+            <Link to="#">Storage</Link>
             <div className={styles['menu-sub']}>
-              <h3 className={styles['menu-category']}>Categort</h3>
-              <ul>
-                <li>
-                  <a href="#">link 01</a>
-                </li>
-                <li>
-                  <a href="#">link 02</a>
-                </li>
-                <li>
-                  <a href="#">link 03</a>
-                </li>
-                <li>
-                  <a href="#">link 03</a>
-                </li>
-              </ul>
+              <div className={styles['menu-row-1']}>
+                <h3 className={styles['menu-category']}>Categort</h3>
+                <ul>
+                  <li>
+                    <Link to="#">link 01</Link>
+                  </li>
+                  <li>
+                    <Link to="#">link 02</Link>
+                  </li>
+                  <li>
+                    <Link to="#">link 03</Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div className={styles['menu-row-1']}>
+                <h3 className={styles['menu-category']}>Categort</h3>
+                <ul>
+                  <li>
+                    <Link to="#">link 01</Link>
+                  </li>
+                  <li>
+                    <Link to="#">link 02</Link>
+                  </li>
+                  <li>
+                    <Link to="#">link 03</Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div className={styles['menu-row-1']}>
+                <h3 className={styles['menu-category']}>Categort</h3>
+                <ul>
+                  <li>
+                    <Link to="#">link 01</Link>
+                  </li>
+                  <li>
+                    <Link to="#">link 02</Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div className={styles['menu-row-1']}>
+                <h3 className={styles['menu-category']}>Categort</h3>
+                <ul>
+                  <li>
+                    <Link to="#">link 01</Link>
+                  </li>
+                  <li>
+                    <Link to="#">link 02</Link>
+                  </li>
+                  <li>
+                    <Link to="#">link 03</Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div className={styles['menu-row-1']}>
+                <h3 className={styles['menu-category']}>Categort</h3>
+                <ul>
+                  <li>
+                    <Link to="#">link 01</Link>
+                  </li>
+                  <li>
+                    <Link to="#">link 02</Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div className={styles['menu-row-1']}>
+                <h3 className={styles['menu-category']}>Categort</h3>
+                <ul>
+                  <li>
+                    <Link to="#">link 01</Link>
+                  </li>
+                </ul>
+              </div>
             </div>
           </li>
           <li>
-            <a href="#">Gaming Gear</a>
+            <Link to="#">Gaming Gear</Link>
           </li>
         </ul>
       </div>
