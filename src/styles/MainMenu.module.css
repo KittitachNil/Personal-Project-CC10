@@ -1,5 +1,5 @@
 .menu-container {
-  max-width: 1000px;
+  max-width: calc(100% - 50px);
   margin: 0 auto;
 }
 nav {
@@ -24,6 +24,7 @@ nav ul {
   list-style: none;
   position: relative;
   text-align: left;
+  left: 0;
 }
 nav li {
   display: inline-block;
@@ -57,7 +58,6 @@ nav li:hover a {
   border-left: 1px solid rgba(255, 255, 255, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
-
 .menu-sub h3 {
   font-size: 18px;
 }
