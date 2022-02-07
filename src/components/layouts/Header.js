@@ -6,7 +6,7 @@ function Header() {
   return (
     <>
       <header>
-        <Link to="#" className="logo">
+        <Link to="/" className="logo">
           <img
             src={shopImg}
             alt=""
@@ -18,12 +18,12 @@ function Header() {
         </Link>
         <ul>
           <li>
-            <Link to="#" className="active">
+            <Link to="/" className="active">
               Home
             </Link>
           </li>
           <li>
-            <Link to="#">Product</Link>
+            <Link to="/categories">Product</Link>
           </li>
           <li>
             <Link to="#">About</Link>
@@ -32,7 +32,7 @@ function Header() {
             <Link to="#">Contact Us</Link>
           </li>
           <li>
-            <Link to="#">
+            <Link to="/login">
               <i class="fas fa-user "></i> Log in
             </Link>
           </li>

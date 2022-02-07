@@ -212,6 +212,9 @@ footer ul li a {
   footer {
     padding: 15px;
   }
+  .content {
+    top: 50px;
+  }
   .content h2 {
     font-size: 1.5em;
     color: rgb(25, 26, 51);

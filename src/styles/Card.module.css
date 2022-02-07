@@ -1,0 +1,14 @@
+.card-detail {
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+}
+
+.card-detail h6 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.card-detail p {
+  font-size: 14px;
+  font-weight: 500;
+}

@@ -109,7 +109,10 @@ function RegisterForm() {
             />
           </div>
           <div className={styles['inputBox']}>
-            <input type="submit" value="Register" />
+            {/* <input type="submit" value="Register" /> */}
+            <button type="submit" onClick={() => navigate('/')}>
+              Register
+            </button>
           </div>
           <p className={styles['forget']}>
             Already have account ? <Link to="/login"> Log in</Link>

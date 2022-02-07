@@ -1,0 +1,38 @@
+.main-cate-title {
+  font-size: 14px;
+}
+.form-group {
+  margin-bottom: 0.5em;
+}
+.form-group {
+  position: relative;
+  display: block;
+  min-height: 1.5em;
+}
+.custom-control {
+  position: relative;
+  display: block;
+  min-height: 1.5rem;
+  padding-left: 1.5rem;
+}
+.form-group a {
+  color: #000;
+  text-decoration: none;
+  background-color: transparent;
+}
+.form-group a input {
+  position: absolute;
+  left: 5px;
+  top: 3px;
+  box-sizing: border-box;
+  margin: 0;
+  overflow: visible;
+}
+.form-group a label {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: top;
+  cursor: pointer;
+  font-size: 12px;
+}

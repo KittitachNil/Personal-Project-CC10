@@ -90,3 +90,9 @@ nav li:hover .menu-sub {
   width: 25%;
   margin-bottom: 20px;
 }
+
+@media (max-width: 992px) {
+  nav {
+    top: 87px;
+  }
+}

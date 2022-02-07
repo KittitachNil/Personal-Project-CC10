@@ -5,6 +5,7 @@ import { AuthContext } from '../contexts/AuthContext';
 import Home from '../pages/Home';
 import Register from '../pages/Register';
 import Login from '../pages/Login';
+import Products from '../pages/Products';
 
 function RouteConfig() {
   const { user } = useContext(AuthContext);
@@ -14,6 +15,7 @@ function RouteConfig() {
         <Route path="" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/categories" element={<Products />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>

@@ -25,7 +25,7 @@ function LoginForm() {
             <input
               type="text"
               placeholder="Username"
-              vale={username}
+              value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
@@ -33,12 +33,14 @@ function LoginForm() {
             <input
               type="password"
               placeholder="Password"
-              vale={password}
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className={styles['inputBox']}>
-            <input type="submit" value="Login" />
+            <button type="submit" onClick={() => navigate('/')}>
+              Log in
+            </button>
           </div>
           <p className={styles['forget']}>
             Forgot Password ? <Link to="#">Click Here</Link>
