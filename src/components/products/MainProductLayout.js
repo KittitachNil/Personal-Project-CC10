@@ -1,5 +1,6 @@
 import CatSearchMenu from './CatSearchMenu';
 import Cards from './Cards';
+import Pagination from './Pagination';
 
 function MainProductLayout() {
   return (
@@ -24,6 +25,7 @@ function MainProductLayout() {
           <Cards />
         </div>
       </div>
+      {/* <Pagination /> */}
     </>
   );
 }
