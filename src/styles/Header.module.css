@@ -1,0 +1,36 @@
+header {
+    position: absolute;
+    top: -35px;
+    width: calc(100% - 30px);
+    padding: 10px 20px;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    z-index: 6000;
+}
+Header ul li {
+    list-style: none;
+    margin: 0 5px;
+}
+
+Header ul li a {
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    padding: 8px 15px;
+    border-radius: 25px;
+    min-width: 85px;
+    text-align: center;
+}
+
+Header ul li a:hover,
+Header ul li a.active {
+    background: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}

@@ -6,29 +6,29 @@ function Pagination() {
       <div className="col-10 mt-4">
         <ul className="pagination justify-content-end pagination-sm">
           <li className="page-item disabled">
-            <Link href="#" className="page-link">
+            <a href="#" className="page-link">
               <span aria-hidden="true">&laquo;</span>
-            </Link>
+            </a>
           </li>
           <li className="page-item">
-            <Link href="#" className="page-link">
+            <a href="#" className="page-link">
               1
-            </Link>
+            </a>
           </li>
           <li className="page-item">
-            <Link href="#" className="page-link">
+            <a href="#" className="page-link">
               2
-            </Link>
+            </a>
           </li>
           <li className="page-item">
-            <Link href="#" className="page-link">
+            <a href="#" className="page-link">
               3
-            </Link>
+            </a>
           </li>
           <li className="page-item">
-            <Link href="#" className="page-link">
+            <a href="#" className="page-link">
               <span aria-hidden="true">&raquo;</span>
-            </Link>
+            </a>
           </li>
         </ul>
       </div>

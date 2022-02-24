@@ -1,4 +1,4 @@
-import HeadCarousel from '../components/headerItems/HeadCarousel';
+import HeadCarousel from '../components/HomeCarousel';
 
 function Home() {
   return (

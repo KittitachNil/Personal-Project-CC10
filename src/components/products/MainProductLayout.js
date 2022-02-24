@@ -5,7 +5,7 @@ import Pagination from './Pagination';
 function MainProductLayout() {
   return (
     <>
-      <div className="col-2">
+      <div className="col-md-2">
         <div className="">
           <div className="product-filter">
             <div>
@@ -16,7 +16,7 @@ function MainProductLayout() {
           </div>
         </div>
       </div>
-      <div className="col-10 d-flex ">
+      <div className="col-md-10 d-md-flex ">
         <div className="row">
           <Cards />
           <Cards />
@@ -25,7 +25,7 @@ function MainProductLayout() {
           <Cards />
         </div>
       </div>
-      {/* <Pagination /> */}
+      <Pagination />
     </>
   );
 }

@@ -6,20 +6,30 @@ import Home from '../pages/Home';
 import Register from '../pages/Register';
 import Login from '../pages/Login';
 import Products from '../pages/Products';
+import EditMyProfile from '../pages/EditMyProfile';
+import UserProfile from '../pages/UserProfile';
 
 function RouteConfig() {
-  const { user } = useContext(AuthContext);
-  return (
-    <Routes>
-      <Route path="/" element={<MainLayout />}>
-        <Route path="" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/categories" element={<Products />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Route>
-    </Routes>
-  );
+    const { user } = useContext(AuthContext);
+    return (
+        <Routes>
+            {user ? (
+                <Route path="/" element={<MainLayout />}>
+                    <Route path="/myuser" element={<UserProfile />} />
+                    <Route path="/myuser/edit" element={<EditMyProfile />} />
+                    <Route path="*" element={<Navigate to="/" />} />
+                </Route>
+            ) : (
+                <Route path="/" element={<MainLayout />}>
+                    <Route path="" element={<Home />} />
+                    <Route path="/categories" element={<Products />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="*" element={<Navigate to="/" />} />
+                </Route>
+            )}
+        </Routes>
+    );
 }
 
 export default RouteConfig;
