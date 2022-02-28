@@ -1,29 +1,52 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../config/axios';
-import { clearToken, setToken, getToken } from '../services/localStorage';
+import {
+    clearToken,
+    setToken,
+    // getToken,
+    getRole,
+} from '../services/localStorage';
 import { LoadingContext } from './LoadingContext';
 import { ErrorContext } from './ErrorContext';
+import jwtDecode from 'jwt-decode';
 
 const AuthContext = createContext();
 
 function AuthContextProvider({ children }) {
     const [user, setUser] = useState(null);
+    const [role, setRole] = useState(getRole());
 
     const { setLoading } = useContext(LoadingContext);
     const { setError } = useContext(ErrorContext);
     const navigate = useNavigate();
+    // const token = getToken('token');
+
+    // console.log(role);
+
+    // useEffect(() => {
+    //     if (getToken()) {
+    //         axios
+    //             .get('/users/me')
+    //             .then((res) => setUser(res.data.user))
+    //             .catch((err) => {
+    //                 console.log(err);
+    //                 clearToken();
+    //             });
+    //     }
+    // }, []);
+
+    const fetchUser = async () => {
+        try {
+            const res = await axios.get('/users/me');
+            setUser(res.data.user);
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     useEffect(() => {
-        if (getToken()) {
-            axios
-                .get('/users/me')
-                .then((res) => setUser(res.data.user))
-                .catch((err) => {
-                    console.log(err);
-                    clearToken();
-                });
-        }
+        fetchUser();
     }, []);
 
     const login = async (username, password) => {
@@ -33,14 +56,18 @@ function AuthContextProvider({ children }) {
                 username,
                 password,
             });
+
             setToken(res.data.token);
             setUser(res.data.user);
+            const payload = jwtDecode(res.data.token);
+            // console.log(payload);
+            setRole(payload.role);
 
             setLoading(false);
 
-            if (res.data.role === 'ADMIN') {
-                navigate('admin/dashboard');
-            }
+            // if (res.data.role === 'ADMIN') {
+            //     navigate('admin/dashboard');
+            // }
         } catch (err) {
             console.log(err);
             setError('Invalid username or password');
@@ -59,7 +86,7 @@ function AuthContextProvider({ children }) {
     };
 
     return (
-        <AuthContext.Provider value={{ user, login, logout, updateUser }}>
+        <AuthContext.Provider value={{ user, login, logout, updateUser, role }}>
             {children}
         </AuthContext.Provider>
     );

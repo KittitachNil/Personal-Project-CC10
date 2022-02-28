@@ -10,15 +10,21 @@ import { BrowserRouter } from 'react-router-dom';
 import ErrorContextProvider from './contexts/ErrorContext';
 import AuthContextProvider from './contexts/AuthContext';
 import LoadingContextProvider from './contexts/LoadingContext';
+import CartContextProvider from './contexts/CartContext';
+import ToastContextProvider from './contexts/ToastContext';
 
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
             <ErrorContextProvider>
                 <LoadingContextProvider>
-                    <AuthContextProvider>
-                        <App />
-                    </AuthContextProvider>
+                    <ToastContextProvider>
+                        <AuthContextProvider>
+                            <CartContextProvider>
+                                <App />
+                            </CartContextProvider>
+                        </AuthContextProvider>
+                    </ToastContextProvider>
                 </LoadingContextProvider>
             </ErrorContextProvider>
         </BrowserRouter>

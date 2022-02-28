@@ -1,54 +1,63 @@
-import Styles from '../../styles/CatSearchMenu.module.css';
-import { Link } from 'react-router-dom';
-
 function CatSearchMenu() {
-  return (
-    <div>
-      <div className={`mb-2 ${Styles['main-cate-title']}`}>Component (DIY)</div>
-      <div className="row">
-        <div className="col-12">
-          <div className={Styles['form-group']}>
-            <Link to="#">
-              <div className={Styles['custom-control']}>
-                <input type="checkbox" id="category-01" />
-                <label title="category-01" className="">
-                  sub-category
-                </label>
-              </div>
-            </Link>
-          </div>
+    return (
+        <div className="container row m-0 p-0">
+            <div className="col-mb-12 border border-light bg-light rounded">
+                <form className="form-group">
+                    <div className="mb-3">
+                        <label
+                            className="form-label mt-3"
+                            htmlFor="mainCategory"
+                        >
+                            Main-Category
+                        </label>
+                        <select name="mainCategory" className="form-select">
+                            <option>CPU</option>
+                            <option>Ram</option>
+                            <option>Gaming Gear</option>
+                        </select>
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label " htmlFor="subCategory">
+                            Sub-Category
+                        </label>
+                        <select name="subCategory" className="form-select">
+                            <option>AMD AM4</option>
+                            <option>INTEL LGA1200 GEN 10th</option>
+                        </select>
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label" htmlFor="priceRange">
+                            Price Range
+                        </label>
+                        <input
+                            type="number"
+                            className="form-control py-2"
+                            placeholder="Min"
+                            name="min"
+                            // value={min}
+                            // onChange={handlePriceRange}
+                        />
+                        <input
+                            type="number"
+                            className="form-control py-2"
+                            placeholder="Max"
+                            name="max"
+                            // value={max}
+                            // onChange={handlePriceRange}
+                        />
+                    </div>
+                    <div className="row m-auto justify-content-center">
+                        <button type="submit" className="btn btn-primary ">
+                            APPLY
+                        </button>
+                        <button type="button" className="btn btn-danger">
+                            Clear
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
-      <div className="row">
-        <div className="col-12">
-          <div className={Styles['form-group']}>
-            <Link to="#">
-              <div className={Styles['custom-control']}>
-                <input type="checkbox" id="category-01" />
-                <label title="category-01" className="">
-                  sub-category
-                </label>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-12">
-          <div className={Styles['form-group']}>
-            <Link to="#">
-              <div className={Styles['custom-control']}>
-                <input type="checkbox" id="category-01" />
-                <label title="category-01" className="">
-                  sub-category
-                </label>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
 
 export default CatSearchMenu;

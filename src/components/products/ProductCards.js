@@ -3,9 +3,14 @@ import { Link } from 'react-router-dom';
 
 function Cards() {
     return (
-        <div className="card col-lg-3 col-sm-6 py-2">
-            <Link to="#">
-                <img src="..." className="card-img-top" alt="..." />
+        <div className="card col-lg-4 col-sm-6 py-2">
+            <Link to="#" className="row justify-content-center my-2">
+                <img
+                    src="https://res.cloudinary.com/dags4zfy7/image/upload/v1645982964/Personal%20Project%20Image/CardImg-AMD_3500_rvoww6.jpg"
+                    className="card-img-top "
+                    style={{ hight: '150px', width: '150px' }}
+                    alt="ProductImage"
+                />
             </Link>
             <div className="card-body ">
                 <div className="mb-3 d-flex justify-content-center">

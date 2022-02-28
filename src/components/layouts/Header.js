@@ -3,15 +3,19 @@ import { Link } from 'react-router-dom';
 import styles from '../../styles/Header.module.css';
 import { AuthContext } from '../../contexts/AuthContext';
 import { useContext, useState } from 'react';
+import { CartContext } from '../../contexts/CartContext';
 
 function Header() {
+    const [pages, setPages] = useState('homepage');
     const { user, logout } = useContext(AuthContext);
+    const { cart } = useContext(CartContext);
+
     return (
         <header className="">
             <nav className="navbar navbar-expand-lg navbar-light ">
                 <div className="container-md">
                     <>
-                        <Link className="navbar-brand d-flex" to="#">
+                        <Link className="navbar-brand d-flex" to="/">
                             <img
                                 src={shopImg}
                                 alt=""
@@ -42,132 +46,162 @@ function Header() {
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0 ">
                             <li className="nav-item">
                                 <Link
-                                    className="nav-link active tw-bold"
+                                    className={
+                                        'nav-link ' +
+                                        (pages === 'homepage' ? 'active' : null)
+                                    }
                                     aria-current="page"
-                                    to="#"
+                                    to="/"
+                                    onClick={(e) => setPages('homepage')}
                                 >
                                     Home
                                 </Link>
                             </li>
-                            <li className="nav-item dropdown">
+                            <li className="nav-item">
                                 <Link
-                                    className="nav-link dropdown-toggle"
-                                    to="#"
-                                    id="navbarDropdown1"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    // aria-expanded="false"
-                                    data-bs-auto-close="outside"
+                                    className={
+                                        'nav-link ' +
+                                        (pages === 'product' ? 'active' : null)
+                                    }
+                                    aria-current="page"
+                                    to="/categories"
+                                    onClick={(e) => setPages('product')}
                                 >
                                     Product
                                 </Link>
-                                <ul
-                                    className="dropdown-menu"
-                                    aria-labelledby="navbarDropdown1"
-                                >
-                                    <li className="dropend">
+                            </li>
+                        </ul>
+                        {user ? (
+                            <ul className="navbar-nav mb-2 mb-lg-0">
+                                {user && user.role === 'CUSTOMER' && (
+                                    <li className="nav-item ms-2">
                                         <Link
-                                            className="dropdown-item dropdown-toggle"
-                                            data-bs-toggle="dropdown"
-                                            to="#"
+                                            className={
+                                                'nav-link align-items-center' +
+                                                (pages === 'cart'
+                                                    ? 'active'
+                                                    : null)
+                                            }
+                                            aria-current="page"
+                                            to="user/cart"
+                                            onClick={(e) => setPages('cart')}
                                         >
-                                            Component (DIY)
-                                        </Link>
-                                        <ul className="dropdown-menu shadow">
-                                            <li>
-                                                <Link
-                                                    className="dropdown-item"
-                                                    to="#"
+                                            <i class="fas fa-shopping-cart"></i>
+                                            &nbsp;
+                                            <span className="me-2">Cart</span>
+                                            {cart && cart.length !== 0 && (
+                                                <span
+                                                    className="position-absolute top-1 start-95 translate-middle badge round-pill bg-danger"
+                                                    role="button"
                                                 >
-                                                    CPU
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link
-                                                    className="dropdown-item"
-                                                    to="#"
-                                                >
-                                                    Ram
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link
-                                                    className="dropdown-item"
-                                                    to="#"
-                                                >
-                                                    Mainboard
-                                                </Link>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <Link className="dropdown-item" to="#">
-                                            Monitors
+                                                    {cart.length}
+                                                </span>
+                                            )}
                                         </Link>
                                     </li>
-                                    <li>
-                                        <Link className="dropdown-item" to="#">
-                                            Gaming Gears
-                                        </Link>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link tw-bold" to="#">
-                                    About
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link tw-bold" to="#">
-                                    Contact
-                                </Link>
-                            </li>
-                            {user ? (
-                                <li class="nav-item dropdown">
+                                )}
+                                <li className="nav-item dropdown">
                                     <Link
-                                        class="nav-link dropdown-toggle"
+                                        className="nav-link dropdown-toggle"
                                         to="#"
                                         id="navbarDropdown"
                                         role="button"
                                         data-bs-toggle="dropdown"
                                         aria-expanded="false"
                                     >
+                                        <i className="fas fa-user-circle" />{' '}
+                                        &nbsp;
                                         {user ? user.username : 'username'}
                                     </Link>
                                     <ul
-                                        class="dropdown-menu"
+                                        className="dropdown-menu dropdown-menu-end"
                                         aria-labelledby="navbarDropdown"
                                     >
+                                        {user && user.role === 'CUSTOMER' && (
+                                            <>
+                                                <li>
+                                                    <Link
+                                                        className="dropdown-item"
+                                                        to="/myuser/"
+                                                    >
+                                                        My Profile
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link
+                                                        className="dropdown-item"
+                                                        to="/user/history"
+                                                    >
+                                                        Order History
+                                                    </Link>
+                                                </li>
+                                            </>
+                                        )}
+                                        {user && user.role === 'ADMIN' && (
+                                            <li>
+                                                <Link
+                                                    className="dropdown-item"
+                                                    to="/admin/dashboard"
+                                                >
+                                                    Admin Dashboard
+                                                </Link>
+                                            </li>
+                                        )}
                                         <li>
-                                            <Link class="dropdown-item" to="#">
-                                                My Profile
-                                            </Link>
+                                            <hr className="dropdown-divider" />
                                         </li>
                                         <li>
-                                            <Link class="dropdown-item" to="#">
-                                                Order History
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <hr class="dropdown-divider" />
-                                        </li>
-                                        <li>
-                                            <Link class="dropdown-item" to="#">
-                                                <i class="fas fa-sign-out-alt">
+                                            <Link
+                                                className="dropdown-item"
+                                                to="#"
+                                                role="button"
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    logout();
+                                                }}
+                                            >
+                                                <i className="fas fa-sign-out-alt">
                                                     &nbsp;Log out
                                                 </i>
                                             </Link>
                                         </li>
                                     </ul>
                                 </li>
-                            ) : (
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/login">
+                            </ul>
+                        ) : (
+                            <ul className="navbar-nav mb-2 mb-lg-0">
+                                <li className="nav-item m-0 p-0">
+                                    <Link
+                                        className={
+                                            'nav-link ' +
+                                            (pages === 'login'
+                                                ? 'active'
+                                                : null)
+                                        }
+                                        to="/login"
+                                        onClick={(e) => setPages('login')}
+                                    >
                                         <i class="fas fa-user">&nbsp; Login</i>
                                     </Link>
                                 </li>
-                            )}
-                        </ul>
+                                <li className="nav-item">
+                                    <Link
+                                        className={
+                                            'nav-link ' +
+                                            (pages === 'register'
+                                                ? 'active'
+                                                : null)
+                                        }
+                                        to="/register"
+                                        onClick={(e) => setPages('register')}
+                                    >
+                                        <i className="fas fa-id-card">
+                                            &nbsp; Register
+                                        </i>
+                                    </Link>
+                                </li>
+                            </ul>
+                        )}
                     </div>
                 </div>
             </nav>
