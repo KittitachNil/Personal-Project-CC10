@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../config/axios';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
 
@@ -8,18 +8,21 @@ function CartContextProvider({ children }) {
     const { user } = useContext(AuthContext);
 
     const [cart, setCart] = useState([]);
-    useEffect(() => {
-        loadCart();
-    }, [user]);
-
-    const loadCart = () => {
-        if (user && user.role && user.role === 'user') {
-            axios
-                .get('/cartItem/cart/')
-                .then((res) => setCart(res.data))
-                .catch((err) => console.log(err));
+    const loadCart = async () => {
+        try {
+            if (user && user.role && user.role === 'CUSTOMER') {
+                const res = await axios.get('/cartItem/cart/');
+                setCart(res.data.cart);
+                // console.log(res.data.cart);
+            }
+        } catch (err) {
+            console.log(err);
         }
     };
+    useEffect(() => {
+        loadCart();
+        console.log(cart);
+    }, [user]);
 
     return (
         <CartContext.Provider value={{ cart, setCart, loadCart }}>

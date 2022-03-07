@@ -1,4 +1,4 @@
-import EditProfile from '../components/users/EditProfile';
+import EditProfile from '../../components/users/EditProfile';
 
 function EditMyProfile() {
     return <EditProfile />;

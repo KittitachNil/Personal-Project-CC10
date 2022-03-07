@@ -3,7 +3,6 @@ import jwtDecode from 'jwt-decode';
 
 const getToken = () => localStorage.getItem(ACCESS_TOKEN);
 const setToken = (value) => {
-    console.log(555555);
     localStorage.setItem(ACCESS_TOKEN, value);
 };
 const clearToken = () => localStorage.removeItem(ACCESS_TOKEN);

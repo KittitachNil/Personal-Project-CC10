@@ -9,7 +9,6 @@ function Header() {
     const [pages, setPages] = useState('homepage');
     const { user, logout } = useContext(AuthContext);
     const { cart } = useContext(CartContext);
-
     return (
         <header className="">
             <nav className="navbar navbar-expand-lg navbar-light ">
@@ -74,16 +73,16 @@ function Header() {
                         {user ? (
                             <ul className="navbar-nav mb-2 mb-lg-0">
                                 {user && user.role === 'CUSTOMER' && (
-                                    <li className="nav-item ms-2">
+                                    <li className="nav-item ms-2 position-relative">
                                         <Link
                                             className={
-                                                'nav-link align-items-center' +
+                                                'nav-link align-items-center ' +
                                                 (pages === 'cart'
                                                     ? 'active'
                                                     : null)
                                             }
                                             aria-current="page"
-                                            to="user/cart"
+                                            to="/myuser/cart"
                                             onClick={(e) => setPages('cart')}
                                         >
                                             <i class="fas fa-shopping-cart"></i>
@@ -101,8 +100,8 @@ function Header() {
                                     </li>
                                 )}
                                 <li className="nav-item dropdown">
-                                    <Link
-                                        className="nav-link dropdown-toggle"
+                                    <div
+                                        className="nav-link dropdown-toggle d-flex align-items-center justify-content-center"
                                         to="#"
                                         id="navbarDropdown"
                                         role="button"
@@ -112,7 +111,7 @@ function Header() {
                                         <i className="fas fa-user-circle" />{' '}
                                         &nbsp;
                                         {user ? user.username : 'username'}
-                                    </Link>
+                                    </div>
                                     <ul
                                         className="dropdown-menu dropdown-menu-end"
                                         aria-labelledby="navbarDropdown"
@@ -130,18 +129,26 @@ function Header() {
                                                 <li>
                                                     <Link
                                                         className="dropdown-item"
-                                                        to="/user/history"
+                                                        to="/myuser/history"
+                                                    >
+                                                        Curent Order
+                                                    </Link>
+                                                </li>
+                                                {/* <li>
+                                                    <Link
+                                                        className="dropdown-item"
+                                                        to="/myuser/history"
                                                     >
                                                         Order History
                                                     </Link>
-                                                </li>
+                                                </li> */}
                                             </>
                                         )}
                                         {user && user.role === 'ADMIN' && (
                                             <li>
                                                 <Link
                                                     className="dropdown-item"
-                                                    to="/admin/dashboard"
+                                                    to="/admin"
                                                 >
                                                     Admin Dashboard
                                                 </Link>

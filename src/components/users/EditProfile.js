@@ -6,9 +6,10 @@ import { ErrorContext } from '../../contexts/ErrorContext';
 import { LoadingContext } from '../../contexts/LoadingContext';
 
 function EditProfile() {
-    const { user, updateUser } = useContext(AuthContext);
+    const { user, updateUser, fetchUser } = useContext(AuthContext);
     const { setLoading } = useContext(LoadingContext);
     const { setError } = useContext(ErrorContext);
+
     const [username, setUsername] = useState(user.username);
     const [firstName, setFirstName] = useState(user.firstName);
     const [lastName, setLastName] = useState(user.lastName);
@@ -30,6 +31,7 @@ function EditProfile() {
                 phoneNumber,
             });
             updateUser(res.data);
+            fetchUser();
             setLoading(false);
             navigate('/myuser');
         } catch (err) {

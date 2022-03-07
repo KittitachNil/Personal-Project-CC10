@@ -33,11 +33,16 @@ function App() {
     return (
         <section id="main">
             <div className="main-container ">
-                {loading && <Spinner />}
-                <Header />
-                <ToastContainer />
-                <RouteConfig />
-                <Footer />
+                {loading ? (
+                    <Spinner />
+                ) : (
+                    <>
+                        <Header />
+                        <ToastContainer />
+                        <RouteConfig />
+                        <Footer />
+                    </>
+                )}
             </div>
         </section>
     );

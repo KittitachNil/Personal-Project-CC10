@@ -12,6 +12,7 @@ import AuthContextProvider from './contexts/AuthContext';
 import LoadingContextProvider from './contexts/LoadingContext';
 import CartContextProvider from './contexts/CartContext';
 import ToastContextProvider from './contexts/ToastContext';
+import SearchContextProvider from './contexts/SearchContext';
 
 ReactDOM.render(
     <React.StrictMode>
@@ -20,9 +21,11 @@ ReactDOM.render(
                 <LoadingContextProvider>
                     <ToastContextProvider>
                         <AuthContextProvider>
-                            <CartContextProvider>
-                                <App />
-                            </CartContextProvider>
+                            <SearchContextProvider>
+                                <CartContextProvider>
+                                    <App />
+                                </CartContextProvider>
+                            </SearchContextProvider>
                         </AuthContextProvider>
                     </ToastContextProvider>
                 </LoadingContextProvider>

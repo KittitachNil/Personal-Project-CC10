@@ -40,6 +40,7 @@ function AuthContextProvider({ children }) {
         try {
             const res = await axios.get('/users/me');
             setUser(res.data.user);
+            setRole(res.data.role);
         } catch (err) {
             console.log(err);
         }
@@ -63,11 +64,10 @@ function AuthContextProvider({ children }) {
             // console.log(payload);
             setRole(payload.role);
 
+            if (role === 'ADMIN') {
+                navigate('/admin');
+            }
             setLoading(false);
-
-            // if (res.data.role === 'ADMIN') {
-            //     navigate('admin/dashboard');
-            // }
         } catch (err) {
             console.log(err);
             setError('Invalid username or password');
@@ -83,10 +83,13 @@ function AuthContextProvider({ children }) {
 
     const updateUser = (value) => {
         setUser((prev) => ({ ...prev, ...value }));
+        fetchUser();
     };
 
     return (
-        <AuthContext.Provider value={{ user, login, logout, updateUser, role }}>
+        <AuthContext.Provider
+            value={{ user, login, logout, updateUser, role, fetchUser }}
+        >
             {children}
         </AuthContext.Provider>
     );

@@ -1,11 +1,16 @@
-function CatSearchMenu() {
+function CatSearchMenu({ mainCategories }) {
+    const { name } = mainCategories;
+    console.log(name);
     return (
         <div className="container row m-0 p-0">
             <div className="col-mb-12 border border-light bg-light rounded">
+                <div className="m-3">
+                    <h5>Filter</h5>
+                </div>
                 <form className="form-group">
                     <div className="mb-3">
                         <label
-                            className="form-label mt-3"
+                            className="form-label mt-1"
                             htmlFor="mainCategory"
                         >
                             Main-Category
@@ -50,7 +55,10 @@ function CatSearchMenu() {
                         <button type="submit" className="btn btn-primary ">
                             APPLY
                         </button>
-                        <button type="button" className="btn btn-danger">
+                        <button
+                            type="button"
+                            className="btn btn-secondary my-2"
+                        >
                             Clear
                         </button>
                     </div>
