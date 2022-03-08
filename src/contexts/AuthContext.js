@@ -82,7 +82,7 @@ function AuthContextProvider({ children }) {
     };
 
     const updateUser = (value) => {
-        setUser((prev) => ({ ...prev, ...value }));
+        // setUser((prev) => ({ ...prev, ...value }));
         fetchUser();
     };
 

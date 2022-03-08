@@ -24,7 +24,7 @@ function EditProfile() {
         try {
             setLoading(true);
             const res = await axios.patch('/users/edit', {
-                // firstName,
+                firstName,
                 lastName,
                 email,
                 address,
